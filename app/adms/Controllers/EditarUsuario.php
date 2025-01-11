@@ -9,7 +9,7 @@ if(!defined('CONST123TESTE')){
 
 /**
  * COntroller da página de editar usuario  dentro do sistema 
- * @author Cristina (assistindo aula do Cesar Celke) <crismgsp@gmail.com>
+ * 
  */
 class EditarUsuario
 {
@@ -25,8 +25,7 @@ class EditarUsuario
 
 
     /**
-     * Instanciar a classe responsável em carregar a View e enviar os dados para a View. Quando o usuario clica no botao cadastrar
-     * envia acessa o if e instancia a classe AdmsEditUsers responsavel por editar o usuario no banco de dados. 
+     * Instanciar a classe responsável em carregar a View e enviar os dados para a View. 
      *
      * @return void
      */
@@ -34,7 +33,7 @@ class EditarUsuario
     
     public function index($id): void
     {
-        //recebe os dados digitados pelo usuario na edicao
+       
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         //se o id for diferente de vazio e o botao para enviar os dados de edicao do usuario não foi clicado
         if((!empty($id)) and (empty($this->dataForm['SendEditUser']))){
@@ -59,7 +58,6 @@ class EditarUsuario
     }    
 
 
-    //este pedaço abaixo é para carregar a pagina com os dados antes de editar
 	
     private function viewEditUser(): void
     {
