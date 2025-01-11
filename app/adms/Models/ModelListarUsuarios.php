@@ -8,8 +8,7 @@ if(!defined('CONST123TESTE')){
 }
 
 /**
- * classe responsavel por receber dados dos usuarios cadastrados no banco de dados, é instanciada no controller ListUsers para que 
- * ele mostre estes usuários
+ * classe responsavel por receber dados dos usuarios cadastrados no banco de dados, é instanciada no controller Usuarios que lista os usuarios cadastrados
  */
 class ModelListarUsuarios
 {
@@ -21,7 +20,6 @@ class ModelListarUsuarios
 
   
     private $parseString;
-
 	
        
     function getResult(): bool
@@ -34,7 +32,6 @@ class ModelListarUsuarios
     {
         return $this->resultBd;
     }
-
    
     /**
      * listar os usuarios
@@ -59,7 +56,7 @@ class ModelListarUsuarios
 			
 			
         }else{
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Nenhum usuário encontrado!!!</p> nao é aqui que ta acessando  o erro..linha 49 admslistusers";
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Nenhum usuário encontrado!!!</p> ";
             $this->result = false;
         }
     }
