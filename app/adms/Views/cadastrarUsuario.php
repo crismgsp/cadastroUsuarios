@@ -20,7 +20,7 @@ if(isset($this->data['form'])) {
                 <span class="title-content">Cadastrar Usuário</span>
                 <div class="top-list-right">
                 <?php
-                echo "<a href='" . URLADM . "lusuarios/index' class='btn-info'>Listar</a> ";
+                echo "<a href='" . URLADM . "usuarios/index' class='btn-info'>Listar</a> ";
                 ?>                    
                 </div>
             </div>
