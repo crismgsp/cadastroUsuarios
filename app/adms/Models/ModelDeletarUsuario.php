@@ -22,14 +22,6 @@ class ModelDeletarUsuario
     private $parseString;  
 
 
-
-    /**
-     * Instanciar a classe responsável em carregar a View e enviar os dados para a View. Quando o usuario clica no botao cadastrar
-     * envia acessa o if e instancia a classe AdmsEditUsers responsavel por editar o usuario no banco de dados. 
-     *
-     * @return void
-     */
-
     
         /**
      * listar os usuarios por id, vai mostrar os dados de um usuario de cada vez, em cada pagina, pelo id
@@ -41,10 +33,10 @@ class ModelDeletarUsuario
         $this->id = $id;
         
         if($this->viewUser()){
-            //se encontrar o usuario pode excluir....vai instanciar a classe helper de deletar e criar um objeto $deleteUser
+            //se encontrar o usuario pode excluir....vai instanciar a classe de deletar e criar um objeto $deleteUser
             $deleteUser = new \App\adms\Models\Deletar();
             //agora pega o objeto pra instanciar o metodo exeDelete..parametros: tabela, condicao(termos), parseString(em que o id vai receber o id do usuario)
-            //nas aulas iniciais explicou sobre o parseString...que pega uma string e converte para um array
+    
             $deleteUser->exeDelete("usuarios", "WHERE id=:id", "id={$this->id}" );
 
             if($deleteUser->getResult()){
@@ -64,13 +56,11 @@ class ModelDeletarUsuario
 	private function viewUser(): bool
     {
        
-        //o professor nao fez isso..to fazendo pq tava dando erro...pedindo 2 argumentos em fullRead ai criei o parseString e coloquei vazio
-        $this->parseString = "";
-        //instancia o helper generico para obter os dados do banco de dados, ele quer ordernar de forma decrescente pra aparecer os ultimos inseridos primeiro
         $viewUser = new \App\adms\Models\AdmsRead();
         $viewUser->fullRead("SELECT * FROM usuarios
         WHERE id=:id LIMIT :limit", 
-        "id={$this->id}&limit=1", $this->parseString);
+		"id={$this->id}&limit=1");
+        
 
         $this->resultBd = $viewUser->getResult();
         
