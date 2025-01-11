@@ -26,18 +26,10 @@ class ModelEditarUsuario
     /** @var $data recebe as informações do formulario que serão salvos (os dados que serão atualizados no banco de dados)  */
     private $data;
 
-    /** @var $dataExitVal recebe os nomes dos campos que será(ao) tirado da validação (no caso sera o campo apelido que nao e obrigatorio estar preenchido)  */
-    private $dataExitVal;
-
+   
     private $parseString;
 
-    private $listRegistryAdd;
-
-
-    /**array $dataSave criado pra armazenar o dados que irão ser salvos/alterados no banco de dados */
-    //private array $dataSave;  //tinha tentado usar isso pra testar se some uma mensgam errada que ta dando
-
-    
+       
     function getResult(): bool
     {
 		return $this->result;
@@ -57,9 +49,7 @@ class ModelEditarUsuario
     public function viewUser($id): void
     {
         $this->id = $id;
-		
-        
-        //instancia o helper generico para obter os dados do banco de dados, ele quer ordernar de forma decrescente pra aparecer os ultimos inseridos primeiro
+	
         $viewUser = new \App\adms\Models\AdmsRead();
         $viewUser->fullRead("SELECT * FROM usuarios WHERE id=:id 
         LIMIT :limit", "id={$this->id}&limit=1");
@@ -133,25 +123,6 @@ class ModelEditarUsuario
 
     }
 
-/*
-    public function listSelect(): array    
-    {
-        $this->parseString = "";   //so para colocar como parametro na hora de instanciar o metodo fullRead
-        $list = new \App\adms\Models\AdmsRead();
-        $list->fullRead("SELECT * FROM usuarios ORDER BY name ASC", $this->parseString);
-        //vai atribuir o resultado para o array abaixo...na posicao sit
-        $registry['sit']= $list->getResult();
-
-        
-              
-        //vai atribuir o resultado para o array abaixo..  na posicao lev
-        $registry['lev']= $list->getResult();
-
-        $this->listRegistryAdd = ['sit' => $registry['sit'], 'lev' => $registry['lev']];
-
-       
-        return $this->listRegistryAdd;
-    }  */
 }
 
 
