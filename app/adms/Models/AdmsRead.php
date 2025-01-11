@@ -54,7 +54,7 @@ class AdmsRead extends Conexao
         }
 
         $this->select = "SELECT * FROM {$table} {$terms}";
-        var_dump($this->select);
+        //var_dump($this->select);
         //instancia aqui o método criado abaixo
         $this->exeInstruction();
 
