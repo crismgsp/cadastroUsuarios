@@ -8,7 +8,6 @@ if(!defined('CONST123TESTE')){
 }
 
 
-
 /**
  * classe responsavel por cadastrar usuarios novos no banco de dados, é instanciada no arquivo CadastrarUsuario
  
@@ -31,7 +30,7 @@ class ModelNovoUsuario
     /** 
      * Recebe os valores do formulário.
      * Instancia o "ModelValCampoVazio" para verificar se todos os campos estão preenchidos 
-     * Verifica se todos os campos estão preenchidos e instancia o método "valInput" para validar os dados dos campos
+     * Verifica se todos os campos estão preenchidos e instancia o método "validaCampo" para validar os dados dos campos
    
      * @param array $data Recebe as informações do formulário
      * 
@@ -41,9 +40,7 @@ class ModelNovoUsuario
     {
         //$this->data é o atribuido que irá receber os dados
         $this->data = $data;
-       
-
-        //apos receber os dados vai validar agora com o php (além de validar com o javascript)
+      
     
         $validaCampo = new \App\adms\Models\ModelValCampoVazio();
         $validaCampo->validaCampo($this->data);
@@ -58,9 +55,9 @@ class ModelNovoUsuario
     
     /** 
      * Instanciar  "ValEmail" para verificar se o e-mail válido
-     * Instanciar o helper "ValEmailUnico" para verificar se o e-mail não está cadastrado no banco de dados, não permitido cadastro com e-mail duplicado
-     * Instanciar o helper "ValidarSenha" para validar a senha, deve ter no minimo 6 digitos     
-     * Instanciar o método "adiciona" quando não houver nenhum erro de preenchimento 
+     * Instanciar  "ValEmailUnico" para verificar se o e-mail não está cadastrado no banco de dados, não permitido cadastro com e-mail duplicado
+     * Instanciar  "ValidarSenha" para validar a senha, deve ter no minimo 6 digitos     
+     * chamar a funcao "adiciona" quando não houver nenhum erro de preenchimento 
      * Retorna FALSE quando houver algum erro
      * 
      * @return void
@@ -102,19 +99,15 @@ class ModelNovoUsuario
     {
 			
             $this->data['senha'] = password_hash($this->data['senha'], PASSWORD_DEFAULT);
-           // $this->data['nome'] = $this->data['nome'];    
-			//$this->data['email'] = $this->data['email'];     			
+            			
 		
 
-            //vai instanciar agora o AdmsCreate e atribuir para um objeto chamado createUser
+            //vai instanciar agora o Insercao e atribuir para um objeto chamado createUser
 
             $createUser = new \App\adms\Models\Insercao();
             $createUser->exeCreate("usuarios", $this->data);
 
-            //este var_dump abaixo vai recuperar o utimo id inserido enquanto cria
-            //isso ta especificado la no AdmsCreate, AdmsCreate é uma classe generica para cadastrar registros no banco de dados
-            //var_dump($createUser->getResult());
-
+           
             //se teve getResult() conseguiu cadastrar com sucesso
             if($createUser->getResult()){
 				 $_SESSION['msg'] = "<p style= 'color: green;'>Usuário cadastrado.</p>";
