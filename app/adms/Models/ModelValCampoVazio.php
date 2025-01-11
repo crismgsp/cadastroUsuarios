@@ -9,7 +9,7 @@ if(!defined('CONST123TESTE')){
 
 /**
  * classe criada para validar se os dados enviados pelo usuario estao preenchidos, além disso retira espaços do inicio
- * e fim e retira tags caso o usuario envie, é instanciada no AdmsNewUser pra validar dados preenchidos antes de cadastrar
+ * e fim e retira tags caso o usuario envie, é instanciada no AdmsNovoUsuario pra validar dados preenchidos antes de cadastrar
  * no banco de dados
  */
 class ModelValCampoVazio
