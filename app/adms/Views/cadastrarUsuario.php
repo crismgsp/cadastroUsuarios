@@ -10,9 +10,7 @@ if(isset($this->data['form'])) {
     
 }
 
-
 ?>
-
 
     <div class="wrapper">
         <div class="row">
@@ -61,8 +59,7 @@ if(isset($this->data['form'])) {
                             <input type="email" name="email" id="email" class="input-adm" placeholder="Digite o melhor e-mail" value="<?php echo $email; ?>"
                             required>
                         </div>
-                    </div>
-                        
+                    </div>                        
              
                         <?php 
                         $senha = "";
@@ -79,9 +76,7 @@ if(isset($this->data['form'])) {
                         </div>
                     </div>
 
-
-                    <button type="submit" name="NovoUsuario" class="btn-success" value="Cadastrar">Cadastrar</button>
-                        
+                    <button type="submit" name="NovoUsuario" class="btn-success" value="Cadastrar">Cadastrar</button>                        
                         
                 </form>
             </div>
