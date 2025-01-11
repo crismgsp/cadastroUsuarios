@@ -65,8 +65,7 @@ class Insercao extends Conexao
             $this->result = $this->conn->lastInsertId();
         }catch(PDOException $err){
             $this->result = null;
-            //se der algum erro ver o que posso fazer neste pedaço pois como o professor usa php 8
-            //ele marcou a variavel result como string ou null
+           
         }
     }
 
