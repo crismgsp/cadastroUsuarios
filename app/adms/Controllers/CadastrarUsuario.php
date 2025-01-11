@@ -8,16 +8,15 @@ if(!defined('CONST123TESTE')){
 }
 
 /**
- * COntroller da página de cadastrar um novo usuário, neste caso dentro do sistema (e nao de fora sem precisar do login)
- * @author Cristina (assistindo aula do Cesar Celke) <crismgsp@gmail.com>
+ * COntroller da página de cadastrar um novo usuário
+ 
  */
 class CadastrarUsuario
 {
     /** 
-     * @var $data recebe os dados que devem ser enviados para a view ..o que ta comentado so funciona no php 8 desta forma
-     * coloquei do jeito que funciona na minha versao
+     * @var $data recebe os dados que devem ser enviados para a view ..
      */
-    //private array|string|null $data; isso funcionaria no php 8
+    
 
     private $data;
 
@@ -27,9 +26,7 @@ class CadastrarUsuario
     private $dataForm;
 
     /**
-     * Instanciar a classe responsável em carregar a View e enviar os dados para a View. Quando o usuario clica no botao cadastrar
-     * envia acessa o if e instancia a classe AdmsAddUsers responsavel por cadastrar o usuario no banco de dados. Quando o usuário for cadastrado
-     * com sucesso direciona para a pagina listar usuarios , se não , instancia a classe responsavel em carregar a view e enviar os dados para  a view
+     * 
      *
      * @return void
      */
@@ -46,7 +43,7 @@ class CadastrarUsuario
 
                       
          if(!empty($this->dataForm['NovoUsuario'])) {
-			//faz o unset para tirar os dados do SendNewUser que estavam aparecendo no meio 
+		
 			//dos dados a cadastrar no banco de dados
 			unset($this->dataForm['NovoUsuario']);   
 			
@@ -67,7 +64,7 @@ class CadastrarUsuario
 		}   
     }  
 
-        //este pedaço abaixo é para carregar a pagina relacionada a esta controller que é a addUser
+       
     private function viewAddUser(): void
     {
        
